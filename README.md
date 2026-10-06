@@ -46,7 +46,7 @@
 ║    PROJECT   ─── Battery DNA+                                            ║
 ║    TYPE      ─── AI-Powered Electrochemical Trust Platform               ║
 ║    DOMAIN    ─── Used EV Batteries · Second-Life · Battery Science       ║
-║    STATUS    ─── Hackathon Prototype (Demo Mode, No Hardware Needed)     ║
+║    STATUS    ─── Hackathon Prototype (Simulated Data, No Hardware)       ║
 ║                                                                          ║
 ║    ┌──────────────┬───────────────┬──────────────┬───────────────┐       ║
 ║    │ INPUT SIGNALS│ DNA SIGNATURES│ DECISIONS    │ TRUST SCORE   │       ║
@@ -61,6 +61,23 @@
 ```
 
 </div>
+
+## ◈ `cat overview.md`
+
+Battery DNA+ is an AI-powered electrochemical trust platform designed for used and second-life EV batteries.
+
+Instead of relying only on battery identity, historical records or traditional health metrics, Battery DNA+ analyzes **measurable battery behavior**: voltage, current, temperature, resistance / impedance and BMS data.
+
+The system converts these signals into a battery-specific behavioral profile, the **"Battery DNA"**, and uses AI-assisted analysis to generate:
+
+- 🧬 Battery DNA Profile
+- 🛡️ Battery Trust Score
+- ⚠️ Behavioral anomaly analysis
+- 🔍 Tamper-risk assessment
+- 🔮 Future degradation trend
+- ♻️ Continue / Repair / Repurpose / Recycle recommendation
+
+---
 
 ## ◈ `whoami`
 
@@ -97,13 +114,87 @@ class BatteryDNAPlus:
     DISCLAIMER = "AI-assisted assessment. No guarantee of authenticity or safety."
 ```
 
+---
+
+## ◈ `cat problem.md`
+
+### 🎯 Problem Statement
+
+A used EV battery can look perfectly normal externally while its actual internal condition remains uncertain.
+
+Existing information such as:
+
+- QR codes
+- Serial numbers
+- Battery passports
+- SOH
+- BMS readings
+
+can be useful, but none of them necessarily answer one important question:
+
+> **Can we trust the battery's current behavior?**
+
+Hidden degradation, cell replacement, uneven cell behavior and improper repair create uncertainty when batteries enter **resale, refurbishment or second-life applications**.
+
+```text
+┌───────────────────────────────────────────────┐
+│   Battery Identity   ≠   Battery Condition    │
+└───────────────────────────────────────────────┘
+```
+
+| Gap | Description |
+| :--- | :--- |
+| **Unknown condition** | Actual condition may not be visible from external inspection. |
+| **Hidden degradation** | Electrical and thermal behavior can reveal ageing that is not obvious externally. |
+| **Possible tampering** | Cell replacement or improper repair may create behavioral inconsistencies. |
+| **Limited trust** | A QR code, serial number or record does not by itself show present condition. |
+
+---
+
+## ◈ `cat solution.md`
+
+### 💡 Our Solution
+
+Battery DNA+ creates a battery-specific electrochemical behavioral profile from measurable electrical and thermal signals.
+
+```text
+INPUT                          PROCESSING                      OUTPUT
+─────                          ──────────                      ──────
+Voltage                        1. Data acquisition             Battery DNA Profile
+Current                        2. Feature extraction           Battery Trust Score
+Temperature            ──▶     3. Battery DNA generation  ──▶  Anomaly / Tamper Risk
+Internal Resistance            4. AI-assisted analysis         Future Degradation Trend
+BMS Data                       5. Trust scoring                Next-life Recommendation
+                               6. Decision recommendation
+```
+
+---
+
 ## ◈ `./how_it_works.sh`
 
 ```text
-  [01 DATA]  ──▶  [02 FEATURES]  ──▶  [03 BATTERY DNA]  ──▶  [04 AI]  ──▶  [05 DECISION]
-  V·I·T·R·BMS     Electrical +        Battery-specific       Anomalies +    Trust Score +
-                  Thermal patterns    behavioral profile     Degradation    Recommendation
+  EV BATTERY
+      ↓
+  DATA ACQUISITION        Voltage · Current · Temperature · Resistance · BMS
+      ↓
+  FEATURE EXTRACTION      Electrical + thermal behavioral patterns
+      ↓
+  BATTERY DNA PROFILE     Battery-specific behavioral fingerprint
+      ↓
+  AI ANALYSIS             Anomalies · condition · degradation
+      ↓
+  TRUST SCORE             0 – 100 AI-assisted assessment
+      ↓
+  DECISION ENGINE
+      ↓
+  CONTINUE / REPAIR / REPURPOSE / RECYCLE
 ```
+
+---
+
+## ◈ `diff existing_systems battery_dna_plus`
+
+### ⭐ Why Battery DNA+?
 
 <div align="center">
 
@@ -119,13 +210,15 @@ class BatteryDNAPlus:
 
 </div>
 
+> Battery DNA+ focuses on how the battery behaves **now**, not only on what its records say about it.
+
 ---
 
-## ◈ `cat featured_modules.md`
+## ◈ `cat key_features.md`
 
 <div align="center">
 
-# 🔋 FEATURED MODULES
+# 🚀 KEY FEATURES
 
 Behavior-based trust, from raw signals to second-life decisions.
 
@@ -137,11 +230,10 @@ Behavior-based trust, from raw signals to second-life decisions.
 
 ### 🧬 BATTERY DNA PROFILE
 
-**Fingerprint-style behavioral signature**
+**Battery-specific behavioral fingerprint**
 
 ```yaml
-Status : Built (simulated data)
-Stack  : React · SVG · Framer Motion
+Status : Prototype (simulated data)
 Focus  : Battery Fingerprinting
 ```
 
@@ -153,18 +245,17 @@ Focus  : Battery Fingerprinting
 
 <td width="50%" valign="top">
 
-### 🛡️ TRUST SCORE ENGINE
+### 🛡️ BATTERY TRUST SCORE
 
-**Single 0–100 trust rating**
+**0–100 AI-assisted trust assessment**
 
 ```yaml
-Status : Built (demo model)
-Stack  : React · TypeScript
+Status : Prototype (demo scoring model)
 Focus  : Condition + Trust
 ```
 
-* Safety, consistency, tamper risk, condition
-* Animated gauge with HIGH TRUST band
+* Safety, behavioral consistency, tamper risk, condition
+* HIGH / MEDIUM / LOW trust bands
 * Probability-based, non-absolute language
 
 </td>
@@ -178,14 +269,13 @@ Focus  : Condition + Trust
 **Behavioral deviation analysis**
 
 ```yaml
-Status : Built (simulated data)
-Stack  : React · Recharts
+Status : Prototype (simulated data)
 Focus  : Tamper + Anomaly Risk
 ```
 
-* Tamper risk percentage (demo: LOW, 12%)
-* Per-signal checks: voltage, temperature, resistance
-* Flags minor cell-balance deviation
+* Voltage, temperature and resistance behavior checks
+* Cell-balance deviation flagging
+* Tamper risk as a probability, not a verdict
 
 </td>
 
@@ -196,14 +286,13 @@ Focus  : Tamper + Anomaly Risk
 **Model-based degradation trend**
 
 ```yaml
-Status : Built (simulated data)
-Stack  : React · Recharts
+Status : Prototype (simulated data)
 Focus  : Degradation Prediction
 ```
 
 * Normal usage · fast charging · high temperature
 * Today → 6 months → 1 year trust trend
-* Clearly labeled as a prediction
+* Clearly labeled as an estimate
 
 </td>
 </tr>
@@ -216,8 +305,8 @@ Focus  : Degradation Prediction
 **What should happen next?**
 
 ```yaml
-Status : Built
-Output : CONTINUE · REPAIR · REPURPOSE · RECYCLE
+Status : Prototype
+Output : CONTINUE → REPAIR → REPURPOSE → RECYCLE
 Demo   : EVB-2048 → REPURPOSE (second-life energy storage)
 ```
 
@@ -229,28 +318,105 @@ Demo   : EVB-2048 → REPURPOSE (second-life energy storage)
 
 ## ◈ `./demo_mode.sh`
 
-Works with **no hardware**. Click **Analyze Battery** and the full dashboard populates from sample data.
+### 🖥️ Demo
+
+Battery DNA+ includes a **Demo Mode that works without physical battery hardware**. Click **Analyze Battery** to simulate the complete workflow.
 
 ```text
-Battery ID    : EVB-2048          Chemistry   : Lithium-Ion
-Voltage       : 3.65 V            Current     : 18.4 A
-Temperature   : 30 °C             Resistance  : 18 mΩ
-Cycle Count   : 742               SOH         : 92 %
-──────────────────────────────────────────────────────────
-Trust Score   : 94 / 100  (HIGH TRUST)
-Tamper Risk   : LOW (12%)
-Recommendation: REPURPOSE
+┌─ DEMO BATTERY ──────────────────────────────────────────┐
+│ Battery ID    : EVB-2048          Chemistry   : Lithium-Ion
+│ Voltage       : 3.65 V            Current     : 18.4 A
+│ Temperature   : 30 °C             Resistance  : 18 mΩ
+│ Cycle Count   : 742               SOH         : 92 %
+├─ AI-ASSISTED RESULTS ───────────────────────────────────┤
+│ Trust Score   : 94 / 100  (HIGH TRUST)
+│ Tamper Risk   : LOW (12%)
+│ Anomaly       : Minor cell-balance deviation
+│ Recommendation: REPURPOSE
+└─────────────────────────────────────────────────────────┘
 ```
 
-**Judge flow:** problem → analyze demo battery → AI analysis animation → Battery DNA → Trust Score → charts → anomalies → future prediction → **REPURPOSE** → second-life impact.
+#### 🌐 Live Demo
+
+[Open Battery DNA+](YOUR_DEPLOYED_URL)
+
+#### 🎥 Demo Video
+
+[Watch the Battery DNA+ Demo](YOUR_VIDEO_URL)
+
+---
+
+## ◈ `ls screenshots/`
+
+### 📸 Screenshots
+
+| Home | Battery Scan |
+| :---: | :---: |
+| ![Home](./screenshots/home.png) | ![Battery Scan](./screenshots/battery-scan.png) |
+
+| Battery DNA Profile | Trust Score |
+| :---: | :---: |
+| ![DNA Profile](./screenshots/dna-profile.png) | ![Trust Score](./screenshots/trust-score.png) |
+
+| Analytics | Decision Engine |
+| :---: | :---: |
+| ![Analytics](./screenshots/analytics.png) | ![Decision Engine](./screenshots/decision-engine.png) |
+
+```text
+screenshots/
+├── home.png
+├── battery-scan.png
+├── dna-profile.png
+├── trust-score.png
+├── analytics.png
+└── decision-engine.png
+```
+
+---
+
+## ◈ `cat architecture.md`
+
+### 🏗️ System Architecture
+
+```text
+EV BATTERY
+    ↓
+DATA ACQUISITION
+    ↓
+FEATURE EXTRACTION
+    ↓
+BATTERY DNA PROFILE
+    ↓
+AI / ML ANALYSIS
+    ↓
+TRUST SCORE
+    ↓
+DECISION ENGINE
+    ↓
+CONTINUE / REPAIR / REPURPOSE / RECYCLE
+```
+
+```text
+Frontend (React dashboard)
+    ↓
+Backend / API  (FastAPI, planned)
+    ↓
+AI Analysis
+    ↓
+Battery Data  (simulated now, BMS / sensors later)
+    ↓
+Database  (Firebase / MongoDB, planned)
+```
 
 ---
 
 ## ◈ Arsenal
 
+### 🛠️ Technology Stack
+
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=react,ts,vite,python,fastapi,firebase,mongodb,git,github,vscode,figma"/>
+<img src="https://skillicons.dev/icons?i=react,ts,vite,python,fastapi,firebase,mongodb,git,github,vscode"/>
 
 </div>
 
@@ -260,75 +426,156 @@ Recommendation: REPURPOSE
 <tr>
 <td width="50%" valign="top">
 
-**🖥️ Prototype (current)**
-- React + TypeScript + Vite
-- Recharts (interactive graphs)
-- Framer Motion (animation)
-- Lucide icons
-- Simulated battery data (`src/data.ts`)
+**🖥️ Frontend (current)**
+- React
+- TypeScript
+- Vite
+- Framer Motion
+- Recharts
+- Lucide Icons
+
+**📊 Data (current)**
+- Simulated battery dataset
+
+**🧰 Development**
+- Git · GitHub · VS Code
 
 </td>
 <td width="50%" valign="top">
 
-**🔌 Roadmap**
-- Python + FastAPI scoring API
-- Firebase / MongoDB scan history
-- BMS / CAN / OBD data input
-- Voltage, current, temperature sensors
+**🔌 Backend / Integration (roadmap)**
+- Python
+- FastAPI
+- BMS / CAN / OBD-II data input
+
+**🗄️ Database (roadmap)**
+- Firebase / MongoDB
+
+**🧠 AI / ML (roadmap)**
 - Trained anomaly-detection model
+- Chemistry-specific reference profiles
 
 </td>
 </tr>
 </table>
 
+> The current prototype is **React + TypeScript + Vite with simulated data**. FastAPI, the database and BMS integration are roadmap items.
+
 ---
 
 ## ◈ `git clone && npm run dev`
 
+### 💻 Installation
+
 ```bash
-git clone https://github.com/rvakash13-abd/battery-dna-plus.git
-cd battery-dna-plus
+# Clone the repository
+git clone https://github.com/rvakash13-abd/Battery-DNA.git
+cd Battery-DNA
+
+# Install dependencies
 npm install
-npm run dev        # http://localhost:5173
+
+# Start development server  (http://localhost:5173)
+npm run dev
+
+# Build for production
 npm run build
 ```
 
+### 📁 Project Structure
+
 ```text
-battery-dna-plus/
+Battery-DNA/
 ├── index.html
 ├── package.json
 └── src/
-    ├── App.tsx        # Sections, scan flow, results dashboard
-    ├── Visuals.tsx    # Battery pack, trust gauge, DNA fingerprint (SVG)
-    ├── data.ts        # Simulated data  →  swap for FastAPI / BMS feed
-    └── styles.css     # Light-blue theme
+    ├── App.tsx        # Main application and dashboard flow
+    ├── Visuals.tsx    # Battery visualization, trust gauge, DNA profile
+    ├── data.ts        # Simulated battery data
+    └── styles.css     # Light-blue UI theme
 ```
+
+- `App.tsx` — Main application and dashboard flow
+- `Visuals.tsx` — Battery visualization, trust gauge and DNA profile
+- `data.ts` — Simulated battery data (swap for a FastAPI / BMS feed later)
+- `styles.css` — Light-blue UI theme
+
+---
+
+## ◈ `cat roadmap.md`
+
+### 🔮 Future Development
+
+- [ ] Real-time battery sensor integration
+- [ ] BMS / CAN / OBD-II data ingestion
+- [ ] Real battery testing datasets
+- [ ] Trained anomaly-detection models
+- [ ] Chemistry-specific reference profiles
+- [ ] Real-time battery monitoring
+- [ ] Cloud-based scan history
+- [ ] Larger battery degradation datasets
+- [ ] Hardware prototype integration
+
+---
+
+## ◈ `cat limitations.log`
+
+### ⚠️ Prototype Limitations
+
+Battery DNA+ is currently a **hackathon prototype**.
+
+```text
+[!] The current demonstration uses simulated battery data.
+[!] Trust Score values are generated by a demo scoring model.
+[!] Real-world battery chemistry variations require additional datasets.
+[!] Tamper detection indicates behavioral anomalies, not proof of physical tampering.
+[!] Future degradation values are model-based estimates.
+[!] The system does not guarantee battery authenticity or safety.
+```
+
+> Battery DNA+ provides AI-assisted assessment based on available data and should not replace professional battery inspection or certified safety testing.
 
 ---
 
 ## ◈ `cat impact.log`
 
+### 🌱 Impact
+
 ```text
-[ENVIRONMENTAL]  Extends battery life · Promotes second-life use · Reduces waste
-[ECONOMIC]       Supports used-battery markets · Fewer unnecessary replacements
-[SAFETY & TECH]  Detects abnormal behavior · Flags possible tampering · AI trust scoring
+[ENVIRONMENTAL]  Extends battery life · Promotes second-life applications · Reduces battery waste
+[ECONOMIC]       Supports used-battery markets · Reduces unnecessary replacement
+                 Helps refurbishers make better decisions
+[SAFETY & TECH]  Detects abnormal behavior · Flags possible tampering
+                 Enables AI-assisted battery trust scoring
 ```
 
-**Who can use it:** EV owners · Used-battery buyers · Service centers · Refurbishers · Recyclers
+---
+
+## ◈ `cat users.md`
+
+### 👥 Target Users
+
+| 🚗 EV Owners | 🛒 Used Battery Buyers | 🔧 Service Centers | 🏭 Refurbishers | 🚛 Fleet Operators | ♻️ Recyclers |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Understand battery condition | Make informed decisions | Support battery inspection | Identify second-life opportunities | Monitor battery fleets | Identify end-of-life batteries |
 
 ---
 
 ## ◈ `connect.sh`
 
+### 👨‍💻 Team
+
 <div align="center">
 
 ```text
 ╔══════════════════════════════════════╗
-║ BUILT BY AKASH R V                   ║
+║ AKASH R V                            ║
+║ Developer & Project Lead             ║
 ╠══════════════════════════════════════╣
-║ ✓ Open to collaboration              ║
-║ ✓ Hardware sensing integration       ║
-║ ✓ Battery science mentors            ║
+║ ✓ AI / ML                            ║
+║ ✓ Full-Stack Development             ║
+║ ✓ Battery Analytics                  ║
+║ ✓ System Architecture                ║
 ╚══════════════════════════════════════╝
 ```
 
@@ -346,6 +593,18 @@ battery-dna-plus/
 </a>
 
 </div>
+
+> If you have teammates, add them here.
+
+---
+
+## ◈ `cat LICENSE`
+
+### 📄 License
+
+This project is developed as a hackathon prototype.
+
+Add your chosen license here, for example **MIT License**. Only use MIT if you want the repository to be freely reusable by others.
 
 ---
 
